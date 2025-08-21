@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* Navbar */}
+      <nav className="navbar">
+        <h1 className="logo">ArtisanAI</h1>
+        <ul>
+          <li>Home</li>
+          <li>Marketplace</li>
+          <li>Stories</li>
+          <li>About</li>
+          <li>Login</li>
+        </ul>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="hero">
+        <h2>Empowering Local Artisans with AI</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Discover unique handmade crafts and learn the stories behind them.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button>Explore Marketplace</button>
       </header>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>© 2025 ArtisanAI - Preserving Tradition, Empowering the Future</p>
+      </footer>
     </div>
   );
 }
