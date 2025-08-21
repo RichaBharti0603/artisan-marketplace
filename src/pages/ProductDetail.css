@@ -1,0 +1,11 @@
+.product { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; padding: 2rem; }
+.product img { width: 100%; border-radius: 14px; object-fit: cover; }
+.meta h2 { margin: 0; }
+.byline { color: #6a4c93; margin: 0.25rem 0 1rem; }
+.story { color:#444; line-height:1.6; }
+.price { font-size: 1.4rem; margin: 0.75rem 0; }
+.actions button {
+  margin-right: .5rem; padding: .6rem .9rem; border:none; border-radius:10px; cursor:pointer; background:#6a4c93; color:#fff;
+}
+.link-stories { display:inline-block; margin-top: .75rem; color:#6a4c93; }
+@media (max-width:900px){ .product { grid-template-columns: 1fr; } }
