@@ -1,35 +1,24 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Marketplace from "./pages/Marketplace";
+import LoginSignup from "./pages/LoginSignup";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
-    <div className="App">
-      {/* Navbar */}
-      <nav className="navbar">
-        <h1 className="logo">ArtisanAI</h1>
-        <ul>
-          <li>Home</li>
-          <li>Marketplace</li>
-          <li>Stories</li>
-          <li>About</li>
-          <li>Login</li>
-        </ul>
-      </nav>
-
-      {/* Hero Section */}
-      <header className="hero">
-        <h2>Empowering Local Artisans with AI</h2>
-        <p>
-          Discover unique handmade crafts and learn the stories behind them.
-        </p>
-        <button>Explore Marketplace</button>
-      </header>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>© 2025 ArtisanAI - Preserving Tradition, Empowering the Future</p>
-      </footer>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/marketplace" element={<Marketplace />} />
+        <Route path="/login" element={<LoginSignup />} />
+      </Routes>
+      <Chatbot />
+      <Footer />
+    </Router>
   );
 }
 
