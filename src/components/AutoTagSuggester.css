@@ -1,0 +1,5 @@
+.tags-box { margin-top:.6rem; padding:.7rem; border:1px solid #eee; border-radius:12px; background:#fff; }
+.tags-head { font-weight:700; color:#6a4c93; margin-bottom:.4rem; }
+.tags-grid { display:flex; flex-wrap:wrap; gap:.5rem; }
+.tag { border:1px solid #ddd; background:#f9f8ff; border-radius:999px; padding:.35rem .7rem; cursor:pointer; }
+.tag.active { background:#6a4c93; color:#fff; border-color:#6a4c93; }

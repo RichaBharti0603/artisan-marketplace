@@ -12,6 +12,7 @@ function Navbar() {
         <li><Link to="/stories">Stories</Link></li>
         <li><Link to="/about">About</Link></li>
          <li><a href="/login">Login / Signup</a></li> {/* ✅ New link */}
+          <li><a href="/onboard">Onboard Artisan</a></li>
       </ul>
     </nav>
   );

@@ -14,3 +14,38 @@ input, textarea {
   padding:.6rem 1rem; border:none; border-radius:10px; background:#6a4c93; color:#fff; cursor:pointer;
 }
 .actions button[disabled] { opacity:.5; cursor:not-allowed; }
+.onboard { padding: 2rem; max-width: 960px; margin: 0 auto; }
+.onboard h2 { text-align:center; color:#6a4c93; margin-bottom: .75rem; }
+
+.steps { display:flex; justify-content:center; gap:.5rem; margin-bottom: 1rem; }
+.dot {
+  width:32px; height:32px; display:grid; place-items:center;
+  border-radius:999px; border:2px solid #ccc; color:#777; font-weight:700;
+}
+.dot.active { border-color:#6a4c93; color:#6a4c93; }
+
+.card {
+  background:#fff; border:1px solid #eee; border-radius:14px;
+  padding:1.25rem; box-shadow:0 4px 12px rgba(0,0,0,.06);
+  display:grid; gap:.9rem;
+}
+label { display:grid; gap:.4rem; font-weight:600; }
+input, textarea {
+  padding:.7rem .85rem; border:1px solid #ddd; border-radius:10px; font:inherit;
+}
+.preview {
+  width: 260px; height: 180px; object-fit: cover;
+  border-radius:12px; border:1px solid #eee;
+}
+
+.actions { display:flex; justify-content:flex-end; gap:.6rem; margin-top:.4rem; }
+.actions button {
+  padding:.6rem 1rem; border:none; border-radius:10px;
+  background:#6a4c93; color:#fff; cursor:pointer;
+}
+.actions button[disabled] { opacity:.5; cursor:not-allowed; }
+
+.debug {
+  margin-top: .9rem; font-size: .92rem; color:#555;
+  background:#faf9ff; border:1px dashed #e5def7; padding:.6rem .8rem; border-radius:10px;
+}
