@@ -9,13 +9,14 @@ import Chatbot from "./components/Chatbot";
 import Onboard from "./pages/Onboard";
 import Stories from "./pages/Stories";
 import ProductDetail from "./pages/ProductDetail";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<Home />} />
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/login" element={<LoginSignup />} />
         <Route path="/onboard" element={<Onboard />} />

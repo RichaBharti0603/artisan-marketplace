@@ -5,8 +5,9 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <h1>Welcome to SkillSync</h1>
-        <p>Connect. Learn. Share.</p>
+        <h1>KalaKriti</h1>
+        <p>Empowering Artisans, Enriching Lives</p>
+        
         <div className="hero-buttons">
           <a href="/onboard" className="btn-primary">Get Started</a>
           <a href="/marketplace" className="btn-secondary">Explore Marketplace</a>
