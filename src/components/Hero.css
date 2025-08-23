@@ -22,3 +22,24 @@
 .hero button:hover {
   background: #5a3a7a;
 }
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.hero-buttons button {
+  padding: 0.8rem 1.2rem;
+  background-color: #d97706;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hero-buttons button:hover {
+  background-color: #b45309;
+}

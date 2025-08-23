@@ -1,0 +1,6 @@
+.ttabs { border:1px solid #eee; padding:.7rem; border-radius:12px; background:#fff; display:grid; gap:.5rem; }
+.ttab-row { display:flex; gap:.4rem; align-items:center; flex-wrap:wrap; }
+.ttab { padding:.4rem .7rem; border-radius:999px; border:1px solid #ddd; background:#f9f9ff; cursor:pointer; }
+.ttab.active { background:#6a4c93; color:#fff; border-color:#6a4c93; }
+.translate-btn { margin-left:auto; padding:.4rem .7rem; border:none; border-radius:10px; background:#6a4c93; color:#fff; cursor:pointer; }
+.ttabs textarea { width:100%; border:1px solid #ddd; border-radius:10px; padding:.6rem; }

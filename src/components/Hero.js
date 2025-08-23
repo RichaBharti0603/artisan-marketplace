@@ -1,19 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./Hero.css";
+import "./Hero.css"; // create this file for styling
 
-function Hero() {
-  const navigate = useNavigate();
-
+export default function Hero() {
   return (
-    <header className="hero">
-      <h2>Empowering Local Artisans with AI</h2>
-      <p>Discover unique handmade crafts and learn the stories behind them.</p>
-      <button onClick={() => navigate("/marketplace")}>
-        Explore Marketplace
-      </button>
-    </header>
+    <section className="hero">
+      <div className="hero-content">
+        <h1>KalaKriti</h1>
+        <p>Empowering Artisans, Enriching Lives</p>
+        
+        <div className="hero-buttons">
+          <a href="/onboard" className="btn-primary">Get Started</a>
+          <a href="/marketplace" className="btn-secondary">Explore Marketplace</a>
+        </div>
+      </div>
+    </section>
   );
 }
-
-export default Hero;

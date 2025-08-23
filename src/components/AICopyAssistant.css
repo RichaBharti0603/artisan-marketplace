@@ -1,0 +1,11 @@
+.ai-box { border:1px solid #eee; border-radius:14px; padding:1rem; background:#fff; box-shadow:0 4px 10px rgba(0,0,0,.04); }
+.ai-head { font-weight:700; color:#6a4c93; margin-bottom:.6rem; }
+.ai-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:.6rem; margin-bottom:.6rem; }
+.ai-grid label { display:grid; gap:.3rem; font-weight:600; }
+.ai-grid input, .ai-grid select { padding:.6rem .75rem; border:1px solid #ddd; border-radius:10px; }
+.ai-btn { margin:.2rem 0 .8rem; padding:.6rem .9rem; background:#6a4c93; color:#fff; border:none; border-radius:10px; cursor:pointer; }
+.ai-output { display:grid; grid-template-columns: 1fr 1fr; gap:.8rem; }
+.ai-output textarea { width:100%; border:1px solid #ddd; border-radius:10px; padding:.6rem; }
+.ai-subhead { font-weight:700; margin-bottom:.3rem; }
+.ai-apply { margin-top:.4rem; padding:.5rem .8rem; background:#6a4c93; color:#fff; border:none; border-radius:10px; cursor:pointer; }
+@media (max-width:800px) { .ai-output { grid-template-columns: 1fr; } }
