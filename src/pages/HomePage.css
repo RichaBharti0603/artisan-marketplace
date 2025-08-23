@@ -1,0 +1,120 @@
+.homepage {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.intro {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #b71c1c;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+  background: #fffaf0;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  flex: 1 1 280px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1.5s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #e65100;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Call to Action */
+.cta {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  animation: fadeInUp 1.5s ease;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #880e4f;
+}
+
+.explore-btn {
+  background: #d32f2f;
+  color: #fff;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: #b71c1c;
+  transform: scale(1.08);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro h2,
+  .cta h2 {
+    font-size: 1.6rem;
+  }
+
+  .feature-card {
+    max-width: 90%;
+  }
+}

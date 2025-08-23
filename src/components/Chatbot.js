@@ -1,46 +1,29 @@
 import React, { useState } from "react";
+import "./Chatbot.css";
 
 export default function Chatbot() {
-  const [messages, setMessages] = useState([
-    { from: "bot", text: "Hi 👋! How can I help you today?" }
-  ]);
-  const [input, setInput] = useState("");
-
-  const sendMessage = () => {
-    if (!input.trim()) return;
-    setMessages([...messages, { from: "user", text: input }]);
-    setInput("");
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="p-4 border rounded-lg bg-white shadow-md w-80">
-      <div className="h-60 overflow-y-auto mb-2 border p-2 rounded">
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`mb-1 ${
-              msg.from === "bot" ? "text-blue-600" : "text-green-600"
-            }`}
-          >
-            <b>{msg.from === "bot" ? "Bot" : "You"}:</b> {msg.text}
+    <div className="chatbot-container">
+      {open && (
+        <div className="chat-window">
+          <div className="chat-header">
+            <h4>AI Marketplace Assistant</h4>
+            <button onClick={() => setOpen(false)}>✖</button>
           </div>
-        ))}
-      </div>
-      <div className="flex">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="flex-1 border rounded-l px-2"
-          placeholder="Type..."
-        />
-        <button
-          onClick={sendMessage}
-          className="bg-blue-500 text-white px-3 rounded-r"
-        >
-          Send
-        </button>
-      </div>
+          <div className="chat-body">
+            <p>Hello! 👋 I can help artisans share their stories & products.</p>
+          </div>
+          <div className="chat-input">
+            <input type="text" placeholder="Type your question..." />
+            <button>Send</button>
+          </div>
+        </div>
+      )}
+      <button className="chatbot-button" onClick={() => setOpen(!open)}>
+        💬
+      </button>
     </div>
   );
 }
