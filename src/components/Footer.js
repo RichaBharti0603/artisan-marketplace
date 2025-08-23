@@ -1,12 +1,17 @@
 import React from "react";
 import "./Footer.css";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className="footer">
-      <p>© 2025 ArtisanAI - Preserving Tradition, Empowering the Future</p>
+      <div className="footer-content">
+        <p>© 2025 KalaKriti | Celebrating Local Artisans</p>
+        <div className="footer-links">
+          <a href="/stories">Stories</a>
+          <a href="/marketplace">Marketplace</a>
+          <a href="/login">Login</a>
+        </div>
+      </div>
     </footer>
   );
 }
-
-export default Footer;
