@@ -8,7 +8,8 @@ import Onboard from "./pages/Onboard";
 import Stories from "./pages/Stories";
 import ProductDetail from "./pages/ProductDetail";
 import Home from "./pages/Home";
-import Chatbot from "./components/Chatbot"; // floating assistant
+import Chatbot from "./components/Chatbot"; 
+import { ArtisanProvider } from "./context/ArtisanContext";
 
 function Layout() {
   const location = useLocation();
@@ -24,7 +25,7 @@ function Layout() {
         <Route path="/stories" element={<Stories />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
-      {/* Only show assistant on homepage */}
+      {/* ✅ Only show Chatbot on homepage */}
       {location.pathname === "/" && <Chatbot />}
       <Footer />
     </>
@@ -33,8 +34,10 @@ function Layout() {
 
 export default function App() {
   return (
-    <Router>
-      <Layout />
-    </Router>
+    <ArtisanProvider>
+      <Router>
+        <Layout />
+      </Router>
+    </ArtisanProvider>
   );
 }

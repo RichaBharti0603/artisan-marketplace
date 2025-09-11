@@ -122,22 +122,22 @@ export default function Home() {
           <div className="grid">
             {[
               {
-                name: "Ramesh Kumar",
+                name: "Vandana",
                 craft: "Madhubani Painting • Bihar",
                 img:
-                  "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?q=80&w=800&auto=format&fit=crop",
+                  "src/images/Vandana.jpg",
               },
               {
-                name: "Sita Devi",
+                name: "Aradhya",
                 craft: "Terracotta • West Bengal",
                 img:
-                  "https://images.unsplash.com/photo-1600423115367-8c1a3f6a3a05?q=80&w=800&auto=format&fit=crop",
+                  "src/images/Aradhya.jpg",
               },
               {
-                name: "Imran Khan",
+                name: "Arunima",
                 craft: "Handwoven Carpets • Kashmir",
                 img:
-                  "https://images.unsplash.com/photo-1582582621958-7d3e3f5b32f6?q=80&w=800&auto=format&fit=crop",
+                  "src/images/Arunima.jpg",
               },
             ].map((a, i) => (
               <article className="card" key={i}>

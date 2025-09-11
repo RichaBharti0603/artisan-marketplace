@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./Onboard.css";
+import { useNavigate } from "react-router-dom";
+import { useArtisans } from "../context/ArtisanContext";
 
-// ✅ AI-ready UI helpers (frontend only; mock logic inside each)
+// helpers (mock AI components, same as before)
 import AICopyAssistant from "../components/AICopyAssistant";
 import AutoTagSuggester from "../components/AutoTagSuggester";
 import TranslationTabs from "../components/TranslationTabs";
@@ -10,6 +12,9 @@ const steps = ["Profile", "Craft Details", "Pricing & Stock", "Story"];
 
 export default function Onboard() {
   const [step, setStep] = useState(0);
+  const { addArtisan } = useArtisans();
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     region: "",
@@ -22,12 +27,12 @@ export default function Onboard() {
     story: "",
   });
 
-  const [tags, setTags] = useState([]); // ← AutoTagSuggester writes here
+  const [tags, setTags] = useState([]);
   const [descTranslations, setDescTranslations] = useState({
     en: "",
     hi: "",
     bn: "",
-  }); // ← TranslationTabs writes here
+  });
 
   const next = () => setStep((s) => Math.min(s + 1, steps.length - 1));
   const back = () => setStep((s) => Math.max(s - 1, 0));
@@ -45,32 +50,29 @@ export default function Onboard() {
   const submit = (e) => {
     e.preventDefault();
 
-    // assemble payload (ready for backend /api later)
-    const payload = {
-      ...form,
+    const newArtisan = {
+      id: `artisan-${Date.now()}`, // unique id
+      name: form.name,
+      craft: form.craft,
+      region: form.region,
       price: Number(form.price || 0),
       stock: Number(form.stock || 0),
+      image: form.imagePreview || "/images/placeholder.jpg",
       tags,
-      descriptions: descTranslations, // { en, hi, bn }
+      story: form.story,
+      materials: form.materials,
+      descriptions: descTranslations,
     };
 
-    console.log("Onboard SUBMIT (UI only):", payload);
-    alert(
-      "Profile saved! (UI only)\n\nCheck the browser console to see the payload with tags & translations."
-    );
-
-    // reset if you want to clear after submit
-    // setStep(0);
-    // setForm({ name:"", region:"", craft:"", materials:"", price:"", stock:"", imageFile:null, imagePreview:"", story:"" });
-    // setTags([]);
-    // setDescTranslations({ en:"", hi:"", bn:"" });
+    addArtisan(newArtisan); // ✅ save into context
+    alert("Your craft has been listed successfully!");
+    navigate("/explore"); // redirect to marketplace
   };
 
   return (
     <div className="onboard">
       <h2>List your craft</h2>
 
-      {/* Progress Dots */}
       <div className="steps">
         {steps.map((label, i) => (
           <div key={label} className={`dot ${i <= step ? "active" : ""}`}>
@@ -93,7 +95,6 @@ export default function Onboard() {
                 required
               />
             </label>
-
             <label>
               Region
               <input
@@ -104,20 +105,13 @@ export default function Onboard() {
                 required
               />
             </label>
-
             <label>
               Display Photo
               <input type="file" accept="image/*" onChange={onImage} />
             </label>
-
             {form.imagePreview && (
               <>
-                <img
-                  className="preview"
-                  src={form.imagePreview}
-                  alt="preview"
-                />
-                {/* AI: auto-tag suggester (mocked for now) */}
+                <img className="preview" src={form.imagePreview} alt="preview" />
                 <AutoTagSuggester
                   imagePreview={form.imagePreview}
                   onChange={(t) => setTags(t)}
@@ -131,22 +125,22 @@ export default function Onboard() {
         {step === 1 && (
           <>
             <label>
-              Craft (e.g., Madhubani Painting)
+              Craft
               <input
                 name="craft"
                 value={form.craft}
                 onChange={onChange}
+                placeholder="Madhubani Painting"
                 required
               />
             </label>
-
             <label>
               Materials
               <input
                 name="materials"
                 value={form.materials}
                 onChange={onChange}
-                placeholder="e.g., natural dyes, handmade paper"
+                placeholder="Natural dyes, handmade paper"
               />
             </label>
           </>
@@ -166,7 +160,6 @@ export default function Onboard() {
                 required
               />
             </label>
-
             <label>
               Stock
               <input
@@ -181,7 +174,7 @@ export default function Onboard() {
           </>
         )}
 
-        {/* STEP 3: Story + AI Copy + Translations */}
+        {/* STEP 3: Story */}
         {step === 3 && (
           <>
             <label>
@@ -192,30 +185,21 @@ export default function Onboard() {
                 value={form.story}
                 onChange={(e) => {
                   onChange(e);
-                  // keep EN in sync as base text for translations panel
                   setDescTranslations((m) => ({ ...m, en: e.target.value }));
                 }}
-                placeholder="Talk about your tradition, motifs, community, inspiration..."
+                placeholder="Talk about your tradition, motifs, inspiration..."
               />
             </label>
-
-            {/* AI: copy assistant (mocked; integrate /api later) */}
             <AICopyAssistant
               onApplyDescription={(text) => {
                 setForm((f) => ({ ...f, story: text }));
                 setDescTranslations((m) => ({ ...m, en: text }));
               }}
               onApplyCaption={(caption) => {
-                try {
-                  navigator.clipboard?.writeText(caption);
-                  alert("Caption copied to clipboard!");
-                } catch {
-                  alert("Copy failed. You can select & copy manually.");
-                }
+                navigator.clipboard?.writeText(caption).catch(() => {});
+                alert("Caption copied!");
               }}
             />
-
-            {/* Translations (UI only; integrate Translation API later) */}
             <TranslationTabs
               baseText={form.story}
               onChangeMap={(map) => setDescTranslations(map)}
@@ -228,7 +212,6 @@ export default function Onboard() {
           <button type="button" onClick={back} disabled={step === 0}>
             Back
           </button>
-
           {step < steps.length - 1 ? (
             <button type="button" onClick={next}>
               Next
@@ -238,12 +221,6 @@ export default function Onboard() {
           )}
         </div>
       </form>
-
-      {/* Optional: debugging/preview panel */}
-      <div className="debug">
-        <div><strong>Selected tags:</strong> {tags.join(", ") || "-"}</div>
-        <div><strong>Translations set:</strong> {Object.keys(descTranslations).join(", ")}</div>
-      </div>
     </div>
   );
 }
