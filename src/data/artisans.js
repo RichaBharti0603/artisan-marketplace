@@ -38,6 +38,97 @@ export const ARTISANS = [
       "Fine Kashmiri weave with Persian influences, each knot a mark of time and patience.",
     materials: "Wool/silk blend",
     stock: 2
+  },
+  {
+    id: "blue-pottery-01",
+    name: "Neelam Sharma",
+    craft: "Jaipur Blue Pottery",
+    region: "Rajasthan",
+    price: 1800,
+    tags: ["pottery", "glazed", "decor"],
+    image: "/images/bluepottery.jpg",
+    story:
+      "Using quartz and unique glazing, Jaipur’s blue pottery reflects centuries of Persian influence.",
+    materials: "Quartz, glass, gum, multani mitti",
+    stock: 8
+  },
+  {
+    id: "patola-01",
+    name: "Manoj Patel",
+    craft: "Patola Saree",
+    region: "Gujarat",
+    price: 15000,
+    tags: ["weaving", "saree", "textile"],
+    image: "/images/patola.jpg",
+    story:
+      "Double ikat handwoven sarees from Patan, Gujarat—each piece takes months of dedication.",
+    materials: "Silk, natural dyes",
+    stock: 1
+  },
+  {
+    id: "brassware-01",
+    name: "Anil Yadav",
+    craft: "Brassware",
+    region: "Uttar Pradesh",
+    price: 2200,
+    tags: ["metalwork", "decor", "brass"],
+    image: "/images/brass.jpg",
+    story:
+      "Traditional Moradabad brassware—polished to perfection, a blend of utility and artistry.",
+    materials: "Brass",
+    stock: 15
+  },
+  {
+    id: "woodcarving-01",
+    name: "Shabana Begum",
+    craft: "Wood Carving",
+    region: "Saharanpur",
+    price: 3500,
+    tags: ["woodwork", "decor"],
+    image: "/images/woodcarving.jpg",
+    story:
+      "Intricate floral and jali carvings that make every piece timeless.",
+    materials: "Sheesham wood",
+    stock: 4
+  },
+  {
+    id: "jewellery-01",
+    name: "Pooja Singh",
+    craft: "Kundan Jewellery",
+    region: "Rajasthan",
+    price: 4500,
+    tags: ["jewellery", "traditional"],
+    image: "/images/kundan.jpg",
+    story:
+      "Classic Kundan jewellery with uncut stones—bridal favorites across generations.",
+    materials: "Gold plating, uncut stones, glass",
+    stock: 6
+  },
+  {
+    id: "bamboo-01",
+    name: "Rajib Das",
+    craft: "Bamboo Handicrafts",
+    region: "Assam",
+    price: 900,
+    tags: ["eco-friendly", "bamboo", "decor"],
+    image: "/images/bamboo.jpg",
+    story:
+      "Eco-friendly baskets and lamps, woven by skilled artisans from Assam’s bamboo groves.",
+    materials: "Bamboo, cane",
+    stock: 10
+  },
+  {
+    id: "phulkari-01",
+    name: "Harpreet Kaur",
+    craft: "Phulkari Embroidery Dupatta",
+    region: "Punjab",
+    price: 3000,
+    tags: ["embroidery", "textile", "folk"],
+    image: "/images/phulkari.jpg",
+    story:
+      "Vibrant hand-embroidered phulkari dupattas—each thread a story of Punjab’s folk traditions.",
+    materials: "Cotton, silk threads",
+    stock: 3
   }
 ];
 
@@ -48,7 +139,20 @@ export const CATEGORIES = [
   "Textile",
   "Woodwork",
   "Metalwork",
-  "Jewellery"
+  "Jewellery",
+  "Embroidery",
+  "Bamboo"
 ];
 
-export const REGIONS = ["All", "Bihar", "West Bengal", "Kashmir", "Rajasthan", "Gujarat"];
+export const REGIONS = [
+  "All",
+  "Bihar",
+  "West Bengal",
+  "Kashmir",
+  "Rajasthan",
+  "Gujarat",
+  "Uttar Pradesh",
+  "Saharanpur",
+  "Assam",
+  "Punjab"
+];
